@@ -11,6 +11,15 @@ class ApplyOutDuty extends StatefulWidget {
 
 class _ApplyOutDutyState extends State<ApplyOutDuty> {
   var fromDateCtr = TextEditingController();
+  var toDateCtr = TextEditingController();
+  var inTimeController = TextEditingController(text: "00:00");
+  var outTimeController = TextEditingController(text: '00:00');
+  var ccController = TextEditingController();
+  var reasonController = TextEditingController();
+  var commentController = TextEditingController();
+  var attachment = TextEditingController();
+  TextEditingController ctrSource = new TextEditingController();
+  TextEditingController ctrDestination = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +53,7 @@ class _ApplyOutDutyState extends State<ApplyOutDuty> {
             children: [
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                // mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "APPLY OUT DUTY",
@@ -55,7 +65,59 @@ class _ApplyOutDutyState extends State<ApplyOutDuty> {
               const SizedBox(
                 height: 24,
               ),
-              DatePickerField(label: "Select Date", controller: fromDateCtr)
+              DatePickerField(label: "From Date", controller: fromDateCtr),
+              const SizedBox(
+                height: 12,
+              ),
+              DatePickerField(label: "To Date", controller: toDateCtr),
+              const SizedBox(
+                height: 12,
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                      child: TxtField(label: "Source", controller: ctrSource)),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                      child: TxtField(
+                    label: "Destination",
+                    controller: ctrDestination,
+                  ))
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              SimpleDropdown(
+                  labelText: "Select CC",
+                  items: [
+                    "Sagar salunke",
+                    "Ashitosh Deshmukh",
+                    "Krishna tarke",
+                    "Mahesh Nalwade"
+                  ],
+                  onChanged: (value) {}),
+              const SizedBox(
+                height: 12,
+              ),
+              SimpleDropdown(
+                  labelText: "Reason",
+                  items: const [
+                    "Personal",
+                    "Official",
+                    "Emergency",
+                  ],
+                  onChanged: (value) {}),
+              const SizedBox(
+                height: 12,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Apply"),
+              )
             ],
           ),
         ),
