@@ -93,7 +93,7 @@ class _ApplyOutDutyState extends State<ApplyOutDuty> {
               ),
               SimpleDropdown(
                   labelText: "Select CC",
-                  items: [
+                  items: const [
                     "Sagar salunke",
                     "Ashitosh Deshmukh",
                     "Krishna tarke",
