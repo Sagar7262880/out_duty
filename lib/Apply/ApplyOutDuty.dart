@@ -116,7 +116,7 @@ class _ApplyOutDutyState extends State<ApplyOutDuty> {
               ),
               ElevatedButton(
                 onPressed: () {},
-                child: Text("Apply"),
+                child: const Text("Apply"),
               )
             ],
           ),
